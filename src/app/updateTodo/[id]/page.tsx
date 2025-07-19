@@ -2,13 +2,13 @@ import { prisma } from "@/lib/db";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 
-type Params = {
+type PageProps = {
   params: {
     id: string
   }
 }
 
-export default async function page({ params }: Params) {
+export default async function page({ params }: PageProps) {
 
   const todo = await prisma.todo.findUnique({ where: { id: params.id } });
 
